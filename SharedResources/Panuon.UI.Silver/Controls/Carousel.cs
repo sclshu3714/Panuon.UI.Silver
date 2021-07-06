@@ -163,9 +163,8 @@ namespace Panuon.UI.Silver
         private static void OnIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var carousel = d as Carousel;
-            if (!carousel.IsLoaded)
+            if (carousel == null)
                 return;
-
             var targetIndex = 0;
             if (!carousel.Recyclable)
                 targetIndex = carousel.Index > (carousel.Children.Count - 1) ? carousel.Children.Count - 1 : (carousel.Index < 0 ? 0 : carousel.Index);
@@ -177,9 +176,8 @@ namespace Panuon.UI.Silver
                 carousel.Index = targetIndex;
                 return;
             }
-
             carousel.ResetAutoPlayTimer();
-            if (carousel.Orientation == Orientation.Vertical)
+            if (carousel._stkMain != null && carousel.Orientation == Orientation.Vertical)
             {
                 carousel._stkMain.BeginAnimation(StackPanel.MarginProperty, new ThicknessAnimation()
                 {
@@ -188,7 +186,7 @@ namespace Panuon.UI.Silver
                     EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut }
                 });
             }
-            else
+            else if(carousel._stkMain != null)
             {
                 carousel._stkMain.BeginAnimation(StackPanel.MarginProperty, new ThicknessAnimation()
                 {
