@@ -10,8 +10,8 @@ namespace UIBrowser.PartialViews.Custom
     public partial class NoticeView : UserControl
     {
         #region Identity
-        private string _message = "This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.";
-        private string _message2 = "This is a test message.";
+        //private string _message = "This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.";
+        //private string _message2 = "This is a test message.";
         #endregion
 
         public NoticeView()

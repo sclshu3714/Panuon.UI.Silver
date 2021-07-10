@@ -12,8 +12,8 @@ namespace UIBrowser.PartialViews.Custom
     public partial class PendingBoxView : UserControl
     {
         #region Identity
-        private string _message = "This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.";
-        private string _message2 = "This is a test message.";
+        //private string _message = "This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.This is a test message. This is a test message. This is a test message. This is a test message. This is a test message. This is a test message.";
+        //private string _message2 = "This is a test message.";
         #endregion
 
         public PendingBoxView()

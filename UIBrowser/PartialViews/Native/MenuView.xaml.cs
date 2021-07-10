@@ -14,7 +14,7 @@ namespace UIBrowser.PartialViews.Native
     public partial class MenuView : UserControl
     {
         #region Identity
-        private bool _isCodeViewing;
+        //private bool _isCodeViewing;
 
         private LinearGradientBrush _linearGradientBrush;
         #endregion

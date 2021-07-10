@@ -21,7 +21,10 @@ namespace Panuon.UI.Silver.Utils
         {
             try
             {
-                return (GridLength)_tcGridLength.ConvertFromString(widthOrHeight);
+                if (widthOrHeight != null && widthOrHeight != "NaN")
+                    return (GridLength)_tcGridLength.ConvertFromString(widthOrHeight);
+                else
+                    return new GridLength(1, GridUnitType.Auto);
             }
             catch
             {
@@ -33,9 +36,12 @@ namespace Panuon.UI.Silver.Utils
         {
             try
             {
-                return (DataGridLength)_tcDataGridLength.ConvertFromString(widthOrHeight);
+                if (widthOrHeight != null && widthOrHeight != "NaN")
+                    return (DataGridLength)_tcDataGridLength.ConvertFromString(widthOrHeight);
+                else
+                    return new DataGridLength(1, DataGridLengthUnitType.Auto);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new DataGridLength(1, DataGridLengthUnitType.Auto);
             }

@@ -24,7 +24,7 @@ namespace Panuon.UI.Silver
 
             var fileName = Guid.NewGuid().ToString().ToLower();
             SourcePath = Path.Combine(directoryPath, fileName);
-            using (File.Create(SourcePath)) ;
+            using (File.Create(SourcePath)) { };
         }
         #endregion
 
