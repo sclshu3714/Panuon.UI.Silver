@@ -760,12 +760,13 @@
                                                 FontStyle="{Binding FontStyle,RelativeSource={RelativeSource AncestorType=local:Pagination}}"
                                                 local:ButtonHelper.HoverBrush="{Binding HoverBrush,RelativeSource={RelativeSource AncestorType=local:Pagination}}"
                                                 local:ButtonHelper.CornerRadius="{Binding CornerRadius,RelativeSource={RelativeSource AncestorType=local:Pagination}}"
-                                                Content="{Binding Value}">
+                                                Tag="{Binding Value}">
+                                            <TextBlock Text="{Binding ValueText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Margin}"/>
                                             <Button.CommandParameter>
                                                 <MultiBinding Converter="{StaticResource CloneConverter}">
                                                     <Binding Path="."
                                                              RelativeSource="{RelativeSource AncestorType=local:Pagination}" />
-                                                    <Binding Path="Content"
+                                                    <Binding Path="Tag"
                                                              RelativeSource="{x:Static RelativeSource.Self}" />
                                                 </MultiBinding>
                                             </Button.CommandParameter>

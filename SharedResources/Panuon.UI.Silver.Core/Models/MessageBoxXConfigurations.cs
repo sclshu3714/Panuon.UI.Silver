@@ -19,6 +19,9 @@ namespace Panuon.UI.Silver.Core
             }
         }
 
+        public Visibility TitleVisibility { get; set; } = System.Windows.Visibility.Visible;
+        public Visibility ContentVisibility { get; set; } = System.Windows.Visibility.Visible;
+
         /// <summary>
         /// MessageBox style.
         /// </summary>

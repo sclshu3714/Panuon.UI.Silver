@@ -160,6 +160,20 @@ namespace Panuon.UI.Silver
             Index++;
         }
 
+        public void AddChildren(UIElement element) {
+            Children.Add(element);
+        }
+        public void AddChildren(UIElement[] elements)
+        {
+            foreach (var element in elements)
+            {
+                Children.Add(element);
+            }
+        }
+        public void ClearChildren()
+        {
+            Children.Clear();
+        }
         private static void OnIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var carousel = d as Carousel;

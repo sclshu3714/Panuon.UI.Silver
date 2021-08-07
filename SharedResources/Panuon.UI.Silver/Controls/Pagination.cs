@@ -39,6 +39,42 @@ namespace Panuon.UI.Silver
 
         #region Property
         /// <summary>
+        /// 使用后缀
+        /// </summary>
+        public bool UseSuffix
+        {
+            get { return (bool)GetValue(UseSuffixProperty); }
+            set { SetValue(UseSuffixProperty, value); }
+        }
+
+        public static readonly DependencyProperty UseSuffixProperty =
+            DependencyProperty.Register("UseSuffix", typeof(bool), typeof(Pagination), new PropertyMetadata(false));
+
+        /// <summary>
+        /// 前缀
+        /// </summary>
+        public string Prefix
+        {
+            get { return (string)GetValue(PrefixProperty); }
+            set { SetValue(PrefixProperty, value); }
+        }
+
+        public static readonly DependencyProperty PrefixProperty =
+            DependencyProperty.Register("Prefix", typeof(string), typeof(Pagination), new PropertyMetadata(null));
+        /// <summary>
+        /// 后缀
+        /// </summary>
+        public string Suffix
+        {
+            get { return (string)GetValue(SuffixProperty); }
+            set { SetValue(SuffixProperty, value); }
+        }
+
+        public static readonly DependencyProperty SuffixProperty =
+            DependencyProperty.Register("Suffix", typeof(string), typeof(Pagination), new PropertyMetadata(null));
+
+
+        /// <summary>
         /// Current index.
         /// </summary>
         public int CurrentIndex
@@ -209,31 +245,31 @@ namespace Panuon.UI.Silver
             {
                 for (var i = 1; i <= TotalIndex; i++)
                 {
-                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i));
+                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, Prefix, Suffix));
                 }
             }
             else
             {
-                PaginationItems.Add(new PaginationItem(1, CurrentIndex == 1));
-                PaginationItems.Add(new PaginationItem(2, CurrentIndex == 2));
+                PaginationItems.Add(new PaginationItem(1, CurrentIndex == 1, Prefix, Suffix));
+                PaginationItems.Add(new PaginationItem(2, CurrentIndex == 2, Prefix, Suffix));
 
 
                 if (CurrentIndex == 1 || CurrentIndex == 2 || CurrentIndex == 3 || CurrentIndex == 4)
                 {
-                    PaginationItems.Add(new PaginationItem(3, CurrentIndex == 3));
-                    PaginationItems.Add(new PaginationItem(4, CurrentIndex == 4));
-                    PaginationItems.Add(new PaginationItem(5, CurrentIndex == 5));
+                    PaginationItems.Add(new PaginationItem(3, CurrentIndex == 3, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(4, CurrentIndex == 4, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(5, CurrentIndex == 5, Prefix, Suffix));
                 }
 
-                PaginationItems.Add(new PaginationItem(null));
+                PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
 
                 if (CurrentIndex >= TotalIndex - 3)
                 {
-                    PaginationItems.Add(new PaginationItem(null));
+                    PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
 
                     for (var i = TotalIndex - 4; i <= TotalIndex; i++)
                     {
-                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i));
+                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, Prefix, Suffix));
                     }
                     return;
                 }
@@ -241,13 +277,13 @@ namespace Panuon.UI.Silver
                 {
                     for (var i = CurrentIndex - 1; i <= (CurrentIndex + 1); i++)
                     {
-                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i));
+                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
                     }
                 }
-                PaginationItems.Add(new PaginationItem(null));
+                PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
                 for (var i = TotalIndex - 1; i <= TotalIndex; i++)
                 {
-                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i));
+                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
                 }
             }
         }
@@ -256,22 +292,125 @@ namespace Panuon.UI.Silver
 
     internal class PaginationItem
     {
-        public PaginationItem(int? value)
+        public PaginationItem(int? value, bool _UseSuffix = false, string _Prefix = null, string _Suffix = null)
         {
             Value = value;
+            this.UseSuffix = _UseSuffix;
+            this.Prefix = _Prefix;
+            this.Suffix = _Suffix;
         }
 
-        public PaginationItem(int? value, bool isSelected)
+        public PaginationItem(int? value, bool isSelected, bool _UseSuffix = false, string _Prefix = null, string _Suffix = null)
         {
             Value = value;
             IsSelected = isSelected;
+            this.UseSuffix = _UseSuffix;
+            this.Prefix = _Prefix;
+            this.Suffix = _Suffix;
         }
+        public bool UseSuffix { get; set; } = false;
+        /// <summary>
+        /// 前缀
+        /// </summary>
+        public string Prefix { get; set; } = null;
+        /// <summary>
+        /// 后缀
+        /// </summary>
+        public string Suffix { get; set; } = null;
 
         public int? Value { get; set; }
 
         public bool IsSelected { get; set; }
-    }
 
+        public string ValueText {
+            get {
+                if (!Value.HasValue)
+                    return "1";
+                if (UseSuffix)
+                {
+                    string sValue = NumToChinese(Value.Value.ToString());
+                    if (!string.IsNullOrEmpty(Prefix) && !string.IsNullOrEmpty(Suffix))
+                        return $"{Prefix} {sValue} {Suffix}";
+                    else if (!string.IsNullOrEmpty(Prefix) && string.IsNullOrEmpty(Suffix))
+                        return $"{Prefix} {sValue}";
+                    else if (string.IsNullOrEmpty(Prefix) && !string.IsNullOrEmpty(Suffix))
+                        return $"{sValue} {Suffix}";
+                    else if (Value.HasValue)
+                        return $"{sValue}";
+                    else
+                        return "1";
+                }
+                else
+                {
+                    return Convert.ToString(Value.Value);
+                }
+            }
+        }
+
+        /// <returns></returns>
+        /// <summary>
+        /// 阿拉伯数字转换成中文数字
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public string NumToChinese(string x)
+        {
+            string[] pArrayNum = { "零", "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+            //为数字位数建立一个位数组
+            string[] pArrayDigit = { "", "十", "百", "千" };
+            //为数字单位建立一个单位数组
+            string[] pArrayUnits = { "", "万", "亿", "万亿" };
+            var pStrReturnValue = ""; //返回值
+            var finger = 0; //字符位置指针
+            var pIntM = x.Length % 4; //取模
+            int pIntK;
+            if (pIntM > 0)
+                pIntK = x.Length / 4 + 1;
+            else
+                pIntK = x.Length / 4;
+            //外层循环,四位一组,每组最后加上单位: ",万亿,",",亿,",",万,"
+            for (var i = pIntK; i > 0; i--)
+            {
+                var pIntL = 4;
+                if (i == pIntK && pIntM != 0)
+                    pIntL = pIntM;
+                //得到一组四位数
+                var four = x.Substring(finger, pIntL);
+                var P_int_l = four.Length;
+                //内层循环在该组中的每一位数上循环
+                for (int j = 0; j < P_int_l; j++)
+                {
+                    //处理组中的每一位数加上所在的位
+                    int n = Convert.ToInt32(four.Substring(j, 1));
+                    if (n == 0)
+                    {
+                        if (j < P_int_l - 1 && Convert.ToInt32(four.Substring(j + 1, 1)) > 0 && !pStrReturnValue.EndsWith(pArrayNum[n]))
+                            pStrReturnValue += pArrayNum[n];
+                    }
+                    else
+                    {
+                        if (!(n == 1 && (pStrReturnValue.EndsWith(pArrayNum[0]) | pStrReturnValue.Length == 0) && j == P_int_l - 2))
+                            pStrReturnValue += pArrayNum[n];
+                        pStrReturnValue += pArrayDigit[P_int_l - j - 1];
+                    }
+                }
+                finger += pIntL;
+                //每组最后加上一个单位:",万,",",亿," 等
+                if (i < pIntK) //如果不是最高位的一组
+                {
+                    if (Convert.ToInt32(four) != 0)
+                        //如果所有4位不全是0则加上单位",万,",",亿,"等
+                        pStrReturnValue += pArrayUnits[i - 1];
+                }
+                else
+                {
+                    //处理最高位的一组,最后必须加上单位
+                    pStrReturnValue += pArrayUnits[i - 1];
+                }
+            }
+            return pStrReturnValue;
+        }
+    }
     internal class PreviousCommand : ICommand
     {
         event EventHandler ICommand.CanExecuteChanged
