@@ -245,31 +245,31 @@ namespace Panuon.UI.Silver
             {
                 for (var i = 1; i <= TotalIndex; i++)
                 {
-                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
                 }
             }
             else
             {
-                PaginationItems.Add(new PaginationItem(1, CurrentIndex == 1, Prefix, Suffix));
-                PaginationItems.Add(new PaginationItem(2, CurrentIndex == 2, Prefix, Suffix));
+                PaginationItems.Add(new PaginationItem(1, CurrentIndex == 1, UseSuffix, Prefix, Suffix));
+                PaginationItems.Add(new PaginationItem(2, CurrentIndex == 2, UseSuffix, Prefix, Suffix));
 
 
                 if (CurrentIndex == 1 || CurrentIndex == 2 || CurrentIndex == 3 || CurrentIndex == 4)
                 {
-                    PaginationItems.Add(new PaginationItem(3, CurrentIndex == 3, Prefix, Suffix));
-                    PaginationItems.Add(new PaginationItem(4, CurrentIndex == 4, Prefix, Suffix));
-                    PaginationItems.Add(new PaginationItem(5, CurrentIndex == 5, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(3, CurrentIndex == 3, UseSuffix, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(4, CurrentIndex == 4, UseSuffix, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(5, CurrentIndex == 5, UseSuffix, Prefix, Suffix));
                 }
 
-                PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
+                PaginationItems.Add(new PaginationItem(null,false, UseSuffix, Prefix, Suffix));
 
                 if (CurrentIndex >= TotalIndex - 3)
                 {
-                    PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
+                    PaginationItems.Add(new PaginationItem(null,false, UseSuffix, Prefix, Suffix));
 
                     for (var i = TotalIndex - 4; i <= TotalIndex; i++)
                     {
-                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, Prefix, Suffix));
+                        PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
                     }
                     return;
                 }
@@ -280,7 +280,7 @@ namespace Panuon.UI.Silver
                         PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
                     }
                 }
-                PaginationItems.Add(new PaginationItem(null, UseSuffix, Prefix, Suffix));
+                PaginationItems.Add(new PaginationItem(null,false, UseSuffix, Prefix, Suffix));
                 for (var i = TotalIndex - 1; i <= TotalIndex; i++)
                 {
                     PaginationItems.Add(new PaginationItem(i, CurrentIndex == i, UseSuffix, Prefix, Suffix));
