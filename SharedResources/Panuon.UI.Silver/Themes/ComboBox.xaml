@@ -350,6 +350,7 @@
                         <Button x:Name="btnRemove" Content="&#xf00d;" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center"
                                 local:ButtonHelper.ButtonStyle="Outline" BorderThickness="0" FontFamily="{StaticResource FontAwesome}"
                                 Width="{Binding Path=(local:ComboBoxHelper.ItemHeight),RelativeSource={RelativeSource AncestorType=ComboBox},Mode=OneWay}"
+                                Visibility="{Binding Path=(local:ComboBoxHelper.ItemRemove),RelativeSource={RelativeSource AncestorType=ComboBox},Mode=OneWay}"
                                 Command="{Binding Path=(local:ComboBoxHelper.ItemRemoveCommand),RelativeSource={RelativeSource AncestorType=ComboBox},Mode=OneWay}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}}">
                             
