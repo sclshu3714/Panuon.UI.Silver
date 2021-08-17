@@ -59,10 +59,11 @@
                                       HorizontalAlignment="Center"
                                       Height="30"
                                       Width="200"
+                                      pu:ComboBoxHelper.ItemRemove="Visible"
                                       pu:ComboBoxHelper.SearchTextChanged="CmbCustom_SearchTextChanged">
                                 <ComboBoxItem Content="Item1"
-                                              IsSelected="True"/>
-                                <ComboBoxItem Content="Item2" />
+                                              IsSelected="True" Tag="1"/>
+                                <ComboBoxItem Content="Item2" Tag="2" />
                                 <ComboBoxItem Content="Item3" />
                                 <ComboBoxItem Content="Item4" />
                                 <ComboBoxItem Content="Item5" />

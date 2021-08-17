@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using UIBrowser.Helpers;
+using UIBrowser.Models;
 
 namespace UIBrowser.PartialViews.Native
 {
@@ -25,6 +26,10 @@ namespace UIBrowser.PartialViews.Native
             Loaded += ButtonView_Loaded;
             UpdateVisualEffect();
             _linearGradientBrush = FindResource("ColorSelectorBrush") as LinearGradientBrush;
+            ComboBoxHelper.SetItemRemoveCommand(this.CmbCustom, new RelayCommand((obj)=> 
+            { 
+                
+            }));
         }
 
         #region Event

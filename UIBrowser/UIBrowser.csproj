@@ -228,6 +228,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="PartialViews\Native\ExpanderView.xaml.cs">
       <DependentUpon>ExpanderView.xaml</DependentUpon>
     </Compile>

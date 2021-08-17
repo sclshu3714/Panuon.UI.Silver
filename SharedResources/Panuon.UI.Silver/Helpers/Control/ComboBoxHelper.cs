@@ -8,8 +8,9 @@ using System.Windows.Media;
 
 namespace Panuon.UI.Silver
 {
-    public class ComboBoxHelper
+    public class ComboBoxHelper : DependencyObject
     {
+        public ComboBoxHelper() { }
         #region ItemHeight
         public static double GetItemHeight(DependencyObject obj)
         {
@@ -203,6 +204,36 @@ namespace Panuon.UI.Silver
 
         public static readonly DependencyProperty DropDownPaddingProperty =
             DependencyProperty.RegisterAttached("DropDownPadding", typeof(Thickness), typeof(ComboBoxHelper));
+        #endregion
+
+        #region ItemRemove
+        public static Visibility GetItemRemove(DependencyObject obj)
+        {
+            return (Visibility)obj.GetValue(ItemRemoveProperty);
+        }
+
+        public static void SetItemRemove(DependencyObject obj, Visibility value)
+        {
+            obj.SetValue(ItemRemoveProperty, value);
+        }
+
+        public static readonly DependencyProperty ItemRemoveProperty =
+            DependencyProperty.RegisterAttached("ItemRemove", typeof(Visibility), typeof(ComboBoxHelper), new PropertyMetadata(Visibility.Collapsed));
+        #endregion
+
+        #region (Event) ItemRemoveClick
+
+        public static readonly DependencyProperty ItemRemoveCommandProperty = DependencyProperty.Register("ItemRemoveCommand", typeof(System.Windows.Input.ICommand), typeof(ComboBoxHelper), new UIPropertyMetadata(null));
+        public static System.Windows.Input.ICommand GetItemRemoveCommand(DependencyObject obj)
+        {
+            return (System.Windows.Input.ICommand)obj.GetValue(ItemRemoveCommandProperty);
+        }
+
+        public static void SetItemRemoveCommand(DependencyObject obj, System.Windows.Input.ICommand value)
+        {
+            obj.SetValue(ItemRemoveCommandProperty, value);
+        }
+
         #endregion
 
         #region (Event) SearchTextChanged
