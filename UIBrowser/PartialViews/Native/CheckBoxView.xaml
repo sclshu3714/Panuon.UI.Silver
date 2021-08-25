@@ -58,6 +58,7 @@
                                       HorizontalAlignment="Center"
                                       Height="30"
                                       Content="CheckBox"
+                                      pu:CheckBoxHelper.CheckedForeground="Red"
                                       FontFamily="{StaticResource FontAwesome}" />
                         </Grid>
                         <Grid>

@@ -35,6 +35,21 @@ namespace Panuon.UI.Silver
             DependencyProperty.RegisterAttached("CheckedBackground", typeof(Brush), typeof(CheckBoxHelper));
         #endregion
 
+        #region CheckedForeground
+        public static Brush GetCheckedForeground(DependencyObject obj)
+        {
+            return (Brush)obj.GetValue(CheckedForegroundProperty);
+        }
+
+        public static void SetCheckedForeground(DependencyObject obj, Brush value)
+        {
+            obj.SetValue(CheckedForegroundProperty, value);
+        }
+
+        public static readonly DependencyProperty CheckedForegroundProperty =
+            DependencyProperty.RegisterAttached("CheckedForeground", typeof(Brush), typeof(CheckBoxHelper));
+        #endregion
+
         #region GlyphBrush
         public static Brush GetGlyphBrush(DependencyObject obj)
         {

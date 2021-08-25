@@ -102,15 +102,15 @@
                                        pu:CheckBoxHelper.BoxWidth="16"
                                        pu:CheckBoxHelper.CheckedBackground="{Binding Brush, Mode=OneWay}" />
                             <CheckBox  Height="30"
-                                       IsChecked="{x:Null}"
                                        Margin="0,5,0,0"
                                        Content="CheckBox"
-                                       BorderBrush="{Binding Brush, Mode=OneWay}"
+                                       BorderBrush="Red"
                                        BorderThickness="1"
                                        Background="Transparent"
                                        pu:CheckBoxHelper.BoxHeight="16"
                                        pu:CheckBoxHelper.BoxWidth="16"
                                        pu:CheckBoxHelper.CheckedBackground="Transparent"
+                                       pu:CheckBoxHelper.NullGlyphBrush="Red"
                                        pu:CheckBoxHelper.CheckedGlyphBrush="{Binding Brush, Mode=OneWay}" />
                             <CheckBox  Height="30"
                                        Margin="0,5,0,0"
@@ -208,8 +208,7 @@
                                        Margin="0,5,0,0"
                                        pu:ComboBoxHelper.HoverBackground="{Binding BrushTran1, Mode=OneWay}"
                                        pu:ComboBoxHelper.SelectedBackground="{Binding BrushTran2, Mode=OneWay}">
-                                <ComboBoxItem Content="Item1"
-                                              IsSelected="True" />
+                                <ComboBoxItem Content="Item1" IsSelected="True" />
                                 <ComboBoxItem Content="Item2" />
                             </ComboBox>
                             <ComboBox  Height="30"

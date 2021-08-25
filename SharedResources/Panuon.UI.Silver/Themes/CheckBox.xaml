@@ -589,7 +589,7 @@
                                          Value="True">
                                     <Setter TargetName="Content"
                                             Property="TextBlock.Foreground"
-                                            Value="White" />
+                                            Value="{Binding Path=(local:CheckBoxHelper.CheckedForeground), RelativeSource={RelativeSource AncestorType=CheckBox}, Mode=OneWay}" />
                                     <Setter TargetName="BdrChecked"
                                             Property="Visibility"
                                             Value="Visible" />
