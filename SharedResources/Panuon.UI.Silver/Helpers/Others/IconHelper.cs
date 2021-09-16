@@ -17,7 +17,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty FontFamilyProperty =
-            DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(IconHelper));
+            DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(IconHelper),new PropertyMetadata("Microsoft YaHei"));
         #endregion
 
         #region FontSize
@@ -32,7 +32,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty FontSizeProperty =
-            DependencyProperty.RegisterAttached("FontSize", typeof(int), typeof(IconHelper));
+            DependencyProperty.RegisterAttached("FontSize", typeof(int), typeof(IconHelper),new PropertyMetadata(14));
         #endregion
 
         #region Foreground
@@ -62,7 +62,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty WidthProperty =
-            DependencyProperty.RegisterAttached("Width", typeof(string), typeof(IconHelper));
+            DependencyProperty.RegisterAttached("Width", typeof(string), typeof(IconHelper),new PropertyMetadata(10));
         #endregion
     }
 }

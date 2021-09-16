@@ -223,7 +223,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemHeightProperty =
-            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper),new PropertyMetadata(10));
         #endregion
 
         #region ItemIcon
