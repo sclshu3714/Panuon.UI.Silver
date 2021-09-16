@@ -24,6 +24,7 @@ namespace Panuon.UI.Silver
             if (NoticeWindow.Instance == null)
             {
                 var window = new NoticeWindow();
+                window.ShowInTaskbar = false;
                 window.Show();
             }
             NoticeWindow.Instance.AddNotice(message, title, durationSeconds, noticeIcon);
