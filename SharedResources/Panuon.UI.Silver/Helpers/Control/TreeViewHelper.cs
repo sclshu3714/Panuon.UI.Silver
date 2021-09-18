@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace Panuon.UI.Silver
 {
-    public class TreeViewHelper
+    public class TreeViewHelper:DependencyObject
     {
         static TreeViewHelper()
         {
@@ -223,7 +223,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemHeightProperty =
-            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper),new PropertyMetadata(10));
+            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper));
         #endregion
 
         #region ItemIcon

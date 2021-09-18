@@ -8,8 +8,8 @@
         xmlns:converter="clr-namespace:Panuon.UI.Silver.Converters"
         xmlns:pu="clr-namespace:Panuon.UI.Silver"
         mc:Ignorable="d"
-        d:DesignHeight="100"
-        d:DesignWidth="800"
+        d:DesignHeight="85"
+        d:DesignWidth="85"
         x:Name="box"
         pu:WindowXCaption.HideBasicButtons="True"
         pu:WindowXCaption.Height="20"
@@ -25,7 +25,7 @@
     </Window.Resources>
 
     <Border Background="White"
-            CornerRadius="3"
+            CornerRadius="3" Opacity="0.5"
             Margin="5">
         <Border.Effect>
             <DropShadowEffect Color="LightGray"
@@ -56,10 +56,10 @@
                                     Width="{Binding LoadingSize,ElementName=box}"
                                     Background="{Binding LoadingBackground,ElementName=box}"
                                     Foreground="{Binding LoadingForeground,ElementName=box}" />
-                        <TextBlock Margin="20,0,20,0"
+                        <TextBlock x:Name="TxtTitle1" Margin="20,0,20,0"
                                    Grid.Column="1"
                                    Text="{Binding Message,ElementName=box}"
-                                   VerticalAlignment="Center" />
+                                   VerticalAlignment="Center" Visibility="Collapsed"/>
                     </Grid>
                     <Button Grid.Row="2"
                             Height="35"
@@ -83,7 +83,7 @@
                   Visibility="Collapsed">
                 <Grid Margin="10,10,5,5">
                    <Grid
-                          Margin="20,0,0,0"
+                          Margin="0,0,0,0"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
@@ -106,9 +106,9 @@
                                        FontSize="{Binding FontSize,ElementName=box,Converter={StaticResource Add10Converter}}"
                                        Margin="0,0,0,5"
                                        Visibility="Collapsed" />
-                            <TextBlock Grid.Row="1"
+                            <TextBlock x:Name="TxtTitle3" Grid.Row="1"
                                        Text="{Binding Message,ElementName=box}"
-                                       VerticalAlignment="Center" />
+                                       VerticalAlignment="Center" Visibility="Collapsed"/>
                         </Grid>
                     </Grid>
                     <Button Grid.Row="2"

@@ -23,7 +23,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemHeightProperty =
-            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(ComboBoxHelper));
+            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(ComboBoxHelper),new PropertyMetadata(35d));
         #endregion
 
         #region HoverForeground

@@ -25,7 +25,8 @@ namespace Panuon.UI.Silver.Controls.Internal
                 if (!string.IsNullOrEmpty(title))
                 {
                     TxtTitle.Text = title;
-                    TxtTitle.Visibility = Visibility.Visible;
+                    TxtTitle.Visibility = configurations.MessageVisibility;
+                    TxtTitle1.Visibility = configurations.MessageVisibility;
                     Title = title;
                     WindowXCaption.SetHeight(this, 30);
                 }
@@ -35,7 +36,8 @@ namespace Panuon.UI.Silver.Controls.Internal
                 if (!string.IsNullOrEmpty(title))
                 {
                     TxtTitle2.Text = title;
-                    TxtTitle2.Visibility = Visibility.Visible;
+                    TxtTitle2.Visibility = configurations.MessageVisibility;
+                    TxtTitle3.Visibility = configurations.MessageVisibility;
                     Title = title;
                     WindowXCaption.SetHeight(this, 30);
                 }
@@ -63,6 +65,8 @@ namespace Panuon.UI.Silver.Controls.Internal
             MinWidth = configurations.MinWidth;
             MaxHeight = configurations.MaxHeight;
             MaxWidth = configurations.MaxWidth;
+            Height = configurations.MinHeight;
+            Width = configurations.MinWidth;
         }
 
         #region Event
@@ -81,7 +85,29 @@ namespace Panuon.UI.Silver.Controls.Internal
         public static readonly DependencyProperty CancelableProperty =
             DependencyProperty.Register("Cancelable", typeof(bool), typeof(PendingBox));
 
+        public Visibility TitleVisibility
+        {
+            get { return (Visibility)GetValue(TitleVisibilityProperty); }
+            set { SetValue(TitleVisibilityProperty, value); }
+        }
+        public static readonly DependencyProperty TitleVisibilityProperty =
+            DependencyProperty.Register("TitleVisibility", typeof(Visibility), typeof(PendingBox), new PropertyMetadata(Visibility.Visible));
 
+        public Visibility MessageVisibility
+        {
+            get { return (Visibility)GetValue(MessageVisibilityProperty); }
+            set { SetValue(MessageVisibilityProperty, value); }
+        }
+        public static readonly DependencyProperty MessageVisibilityProperty =
+            DependencyProperty.Register("MessageVisibility", typeof(Visibility), typeof(PendingBox), new PropertyMetadata(Visibility.Visible));
+
+        public Brush BorderBackground
+        {
+            get { return (Brush)GetValue(BorderBackgroundProperty); }
+            set { SetValue(BorderBackgroundProperty, value); }
+        }
+        public static readonly DependencyProperty BorderBackgroundProperty =
+            DependencyProperty.Register("BorderBackground", typeof(Brush), typeof(PendingBox), new PropertyMetadata(Brushes.White));
 
         public PendingBoxStyle PendingBoxStyle
         {

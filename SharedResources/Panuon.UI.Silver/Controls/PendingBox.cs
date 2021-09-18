@@ -68,7 +68,7 @@ namespace Panuon.UI.Silver
             var handler = new PendingHandler(() =>
             {
                 msb.ForceClose();
-            }, (s)=> 
+            }, (s) =>
             {
                 msb.UpdateMessage(s);
             });

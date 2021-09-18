@@ -15,7 +15,11 @@ namespace Panuon.UI.Silver.Core
                     break;
             }
         }
+        public Visibility TitleVisibility { get; set; } = Visibility.Collapsed;
 
+        public Visibility MessageVisibility { get; set; } = Visibility.Collapsed;
+
+        public Brush BorderBackground { get; set; } = Brushes.Transparent;
         /// <summary>
         /// Pending box style. Default : Standard.
         /// </summary>
@@ -24,7 +28,7 @@ namespace Panuon.UI.Silver.Core
         /// <summary>
         /// Loding style. Default : Ring2.
         /// </summary>
-        public LoadingStyle LoadingStyle { get; set; } = LoadingStyle.Ring2;
+        public LoadingStyle LoadingStyle { get; set; } = LoadingStyle.Classic;
 
         /// <summary>
         /// Theme Brush. Default : #3E3E3E.
@@ -49,22 +53,22 @@ namespace Panuon.UI.Silver.Core
         /// <summary>
         /// Min height. Default : 250.
         /// </summary>
-        public double MinHeight { get; set; } = 200;
+        public double MinHeight { get; set; } = 80;
 
         /// <summary>
         /// Min width. Default : 500.
         /// </summary>
-        public double MinWidth { get; set; } = 450;
+        public double MinWidth { get; set; } = 80;
 
         /// <summary>
         /// Min height. Default : 250.
         /// </summary>
-        public double MaxHeight { get; set; } = 200;
+        public double MaxHeight { get; set; } = 80;
 
         /// <summary>
         /// Min width. Default : 500.
         /// </summary>
-        public double MaxWidth { get; set; } = 450;
+        public double MaxWidth { get; set; } = 80;
 
         /// <summary>
         /// Font size. Default : 16.

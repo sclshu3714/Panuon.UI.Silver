@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace Panuon.UI.Silver
 {
-    public class IconHelper
+    public class IconHelper: DependencyObject
     {
         #region FontFamily
         public static FontFamily GetFontFamily(DependencyObject obj)
@@ -17,7 +17,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty FontFamilyProperty =
-            DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(IconHelper),new PropertyMetadata("Microsoft YaHei"));
+            DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(IconHelper),new PropertyMetadata(new FontFamily("Microsoft YaHei")));
         #endregion
 
         #region FontSize
@@ -32,7 +32,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty FontSizeProperty =
-            DependencyProperty.RegisterAttached("FontSize", typeof(int), typeof(IconHelper),new PropertyMetadata(14));
+            DependencyProperty.RegisterAttached("FontSize", typeof(int), typeof(IconHelper));
         #endregion
 
         #region Foreground
@@ -62,7 +62,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty WidthProperty =
-            DependencyProperty.RegisterAttached("Width", typeof(string), typeof(IconHelper),new PropertyMetadata(10));
+            DependencyProperty.RegisterAttached("Width", typeof(string), typeof(IconHelper));
         #endregion
     }
 }
