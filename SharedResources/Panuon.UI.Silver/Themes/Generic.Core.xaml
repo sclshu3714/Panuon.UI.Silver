@@ -727,8 +727,9 @@
                                       FontFamily="{StaticResource FontAwesome}"
                                       FontStyle="{TemplateBinding FontStyle}"
                                       local:RepeatButtonHelper.HoverBrush="{TemplateBinding HoverBrush}"
-                                      local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}"
-                                      Content="&#xf104;" />
+                                      local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}">
+                            <Path Width="16" Height="16" Fill="{TemplateBinding Foreground}" Stroke="{TemplateBinding Foreground}" Data="M378.24 512l418.88 418.88L704 1024 192 512l512-512 93.12 93.12z"/>
+                        </RepeatButton>
                         <ItemsControl Grid.Column="1"
                                       ItemsSource="{TemplateBinding PaginationItems}">
                             <ItemsControl.ItemsPanel>
@@ -854,8 +855,9 @@
                                       FontFamily="{StaticResource FontAwesome}"
                                       FontStyle="{TemplateBinding FontStyle}"
                                       local:RepeatButtonHelper.HoverBrush="{TemplateBinding HoverBrush}"
-                                      local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}"
-                                      Content="&#xf105;" />
+                                      local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}">
+                            <Path Width="16" Height="16" Fill="#7B86E1" Stroke="#7B86E1" Data="M610.88 512L192 93.12 285.12 0l512 512-512 512L192 930.88z"/>
+                        </RepeatButton>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="PaginationStyle"

@@ -40,9 +40,12 @@
                      Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Delay=300}" />
             <TreeView x:Name="TvMenu"
                       Grid.Row="1"
-                      pu:TreeViewHelper.SelectedForeground="#49A9C0"
+                      pu:TreeViewHelper.TreeViewStyle="Modern" 
+                      pu:TreeViewHelper.ExpandBehaviour="Any"
+                      pu:TreeViewHelper.SelectMode="Any"
                       pu:TreeViewHelper.ExpandMode="SingleClick"
-                      pu:TreeViewHelper.SelectMode="ChildOnly"
+                      pu:TreeViewHelper.ItemHeight="30" 
+                      pu:TreeViewHelper.SelectedBackground="#225E00FF"
                       SelectedItemChanged="TvMenu_SelectionChanged"
                       Margin="5,0,0,0"
                       ItemsSource="{Binding MenuItems}">

@@ -178,7 +178,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ExpandedBrushProperty =
-            DependencyProperty.RegisterAttached("ExpandedBrush", typeof(Brush), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("ExpandedBrush", typeof(Brush), typeof(TreeViewHelper), new PropertyMetadata(Brushes.Yellow));
         #endregion
 
         #region SelectedBackground
@@ -193,7 +193,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty SelectedBackgroundProperty =
-            DependencyProperty.RegisterAttached("SelectedBackground", typeof(Brush), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("SelectedBackground", typeof(Brush), typeof(TreeViewHelper),new PropertyMetadata(Brushes.Gray));
         #endregion
 
         #region SelectedForeground
@@ -208,7 +208,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty SelectedForegroundProperty =
-            DependencyProperty.RegisterAttached("SelectedForeground", typeof(Brush), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("SelectedForeground", typeof(Brush), typeof(TreeViewHelper),new PropertyMetadata(Brushes.Black));
         #endregion
 
         #region ItemHeight
@@ -223,7 +223,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemHeightProperty =
-            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("ItemHeight", typeof(double), typeof(TreeViewHelper), new PropertyMetadata(0.0d));
         #endregion
 
         #region ItemIcon
@@ -238,7 +238,7 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemIconProperty =
-            DependencyProperty.RegisterAttached("ItemIcon", typeof(object), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("ItemIcon", typeof(object), typeof(TreeViewHelper),new PropertyMetadata(null));
         #endregion
 
         #region ItemPadding
@@ -253,16 +253,16 @@ namespace Panuon.UI.Silver
         }
 
         public static readonly DependencyProperty ItemPaddingProperty =
-            DependencyProperty.RegisterAttached("ItemPadding", typeof(Thickness), typeof(TreeViewHelper));
+            DependencyProperty.RegisterAttached("ItemPadding", typeof(Thickness), typeof(TreeViewHelper), new PropertyMetadata(new Thickness(0,0,0,0)));
         #endregion
 
         #region (Internal) LastSelectedItem
-        internal static TreeViewItem GetLastSelectedItem(DependencyObject obj)
+        public static TreeViewItem GetLastSelectedItem(DependencyObject obj)
         {
             return (TreeViewItem)obj.GetValue(LastSelecteedItemProperty);
         }
 
-        internal static void SetLastSelecteedItem(DependencyObject obj, TreeViewItem value)
+        public static void SetLastSelecteedItem(DependencyObject obj, TreeViewItem value)
         {
             obj.SetValue(LastSelecteedItemProperty, value);
         }

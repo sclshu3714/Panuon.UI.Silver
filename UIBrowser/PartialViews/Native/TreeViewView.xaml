@@ -54,6 +54,7 @@
                         <ColumnDefinition Width="270" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
+                    
                     <Border BorderBrush="LightGray"
                             BorderThickness="1"
                             HorizontalAlignment="Center"
@@ -61,23 +62,29 @@
                             Width="200"
                             MaxHeight="220">
                         <TreeView x:Name="TvCustom"
-                                  VerticalAlignment="Stretch">
+                                  VerticalAlignment="Stretch"
+                                  pu:TreeViewHelper.TreeViewStyle="Modern" 
+                               pu:TreeViewHelper.ExpandBehaviour="Any"
+                               pu:TreeViewHelper.SelectMode="Any"
+                               pu:TreeViewHelper.ExpandMode="SingleClick"
+                               pu:TreeViewHelper.ItemHeight="30" 
+                               pu:TreeViewHelper.SelectedBackground="#225E00FF">
                             <TreeViewItem Header="Item1"
                                           IsExpanded="True">
-                                <TreeViewItem Header="Item1-1"
+                                <TreeViewItem Header="Item1-1" Padding="16,0,0,0"
                                               IsSelected="True" />
-                                <TreeViewItem Header="Item1-2" />
-                                <TreeViewItem Header="Item1-3" />
+                                <TreeViewItem Header="Item1-2"  Padding="16,0,0,0"/>
+                                <TreeViewItem Header="Item1-3"  Padding="16,0,0,0"/>
                             </TreeViewItem>
                             <TreeViewItem Header="Item2">
-                                <TreeViewItem Header="Item1-1" />
-                                <TreeViewItem Header="Item2-2" />
-                                <TreeViewItem Header="Item2-3" />
+                                <TreeViewItem Header="Item1-1"  Padding="16,0,0,0"/>
+                                <TreeViewItem Header="Item2-2"  Padding="16,0,0,0"/>
+                                <TreeViewItem Header="Item2-3"  Padding="16,0,0,0"/>
                             </TreeViewItem>
                             <TreeViewItem Header="Item3">
-                                <TreeViewItem Header="Item3-1" />
-                                <TreeViewItem Header="Item3-2" />
-                                <TreeViewItem Header="Item3-3" />
+                                <TreeViewItem Header="Item3-1"  Padding="16,0,0,0"/>
+                                <TreeViewItem Header="Item3-2"  Padding="16,0,0,0"/>
+                                <TreeViewItem Header="Item3-3"  Padding="16,0,0,0"/>
                             </TreeViewItem>
                         </TreeView>
                     </Border>
@@ -94,6 +101,7 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
+                        <Button Content="All" Width="80" Height="20" VerticalAlignment="Top" Click="OnUnSelected"/>
                         <TextBlock Text="{x:Static localized:Resource.BaseStyle}"
                                    VerticalAlignment="Center" />
                         <StackPanel Grid.Column="1"

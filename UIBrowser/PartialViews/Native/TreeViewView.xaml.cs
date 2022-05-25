@@ -193,7 +193,7 @@ namespace UIBrowser.PartialViews.Native
                     break;
                 case TreeViewStyle.Modern:
                     TreeViewHelper.SetSelectedForeground(TvCustom, null);
-                    TreeViewHelper.SetSelectedBackground(TvCustom, new Color() { A = 34, R = color.R, G = color.G, B = color.B }.ToBrush());
+                    TreeViewHelper.SetSelectedBackground(TvCustom,new SolidColorBrush((Color)ColorConverter.ConvertFromString("#225E00FF")));
                     TvCustom.BorderBrush = color.ToBrush();
                     break;
                 case TreeViewStyle.Chain:
@@ -228,8 +228,15 @@ namespace UIBrowser.PartialViews.Native
         }
 
 
+
         #endregion
 
-
+        private void OnUnSelected(object sender, RoutedEventArgs e)
+        {
+            TreeViewItem viewItem = TreeViewHelper.GetLastSelectedItem(this.TvCustom);
+            if (viewItem != null)
+                viewItem.IsSelected = false;
+            TreeViewHelper.SetLastSelecteedItem(this.TvCustom, null);
+        }
     }
 }

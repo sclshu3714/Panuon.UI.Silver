@@ -9,6 +9,5 @@
     <sys:Double x:Key="Default_FontSize">14</sys:Double>
     <sys:Boolean x:Key="Default_SnapsToDevicePixels">False</sys:Boolean>
     <FontFamily x:Key="FontAwesome">/Panuon.UI.Silver;component/Resources/#fontawesome</FontFamily>
-    <sys:String x:Key="Button_WaitingContent"
-                xml:space="preserve">  Please wait...</sys:String>
+    <sys:String x:Key="Button_WaitingContent" xml:space="preserve">  Please wait...</sys:String>
 </ResourceDictionary>  
