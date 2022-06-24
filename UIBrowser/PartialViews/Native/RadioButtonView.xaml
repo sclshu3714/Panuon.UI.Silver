@@ -60,7 +60,14 @@
                                              HorizontalAlignment="Center"
                                              Height="30"
                                              Content="RadioButton"
-                                             FontFamily="{StaticResource FontAwesome}" />
+                                             Background="#199D9D9D" 
+                                             Foreground="#66000000" 
+                                             FontSize="16px"
+                                             FontFamily="{StaticResource FontAwesome}" 
+                                             pu:RadioButtonHelper.RadioButtonStyle="Button"
+                                             pu:RadioButtonHelper.CheckedBackground="#337B86E1" 
+                                             pu:RadioButtonHelper.CheckedGlyphBrush="#7B86E1"
+                                             pu:RadioButtonHelper.CornerRadius="4"/>
                                 <RadioButton x:Name="RdbCustom2"
                                              VerticalAlignment="Center"
                                              HorizontalAlignment="Center"

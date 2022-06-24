@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Panuon.UI.Silver"
                     xmlns:converter="clr-namespace:Panuon.UI.Silver.Converters"
-                    xmlns:internal="clr-namespace:Panuon.UI.Silver.Controls.Internal">
+                    xmlns:internal="clr-namespace:Panuon.UI.Silver.Controls.Internal"
+                    xmlns:opt="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Themes/CheckBox.xaml" />
@@ -19,8 +20,8 @@
                 Value="Recycling" />
         <Setter Property="ScrollViewer.CanContentScroll"
                 Value="True" />
-        <Setter Property="HeaderTemplateSelector"
-                Value="{StaticResource HeaderTemplateSelector}" />
+        <!--<Setter Property="HeaderTemplateSelector"
+                Value="{StaticResource HeaderTemplateSelector}" />-->
         <Setter Property="VerticalScrollBarVisibility"
                 Value="Auto" />
         <Setter Property="HorizontalScrollBarVisibility"
@@ -691,6 +692,8 @@
         </Setter>
     </Style>
 
+    <Geometry x:Key="gleft" opt:Freeze="true">M378.24 512l418.88 418.88L704 1024 192 512l512-512 93.12 93.12z</Geometry>
+    <Geometry x:Key="gright" opt:Freeze="true">M610.88 512L192 93.12 285.12 0l512 512-512 512L192 930.88z</Geometry>
     <Style TargetType="{x:Type local:Pagination}">
         <Setter Property="SnapsToDevicePixels"
                 Value="{StaticResource Default_SnapsToDevicePixels}" />
@@ -728,7 +731,14 @@
                                       FontStyle="{TemplateBinding FontStyle}"
                                       local:RepeatButtonHelper.HoverBrush="{TemplateBinding HoverBrush}"
                                       local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}">
-                            <Path Width="16" Height="16" Fill="{TemplateBinding Foreground}" Stroke="{TemplateBinding Foreground}" Data="M378.24 512l418.88 418.88L704 1024 192 512l512-512 93.12 93.12z"/>
+                            <Viewbox Stretch="Uniform" Height="14" Width="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Canvas Height="14" Width="8">
+                                    <Path Data="{StaticResource gleft}" Height="14" Width="8"
+                                          Fill="{TemplateBinding Foreground}" 
+                                          Stroke="{TemplateBinding Foreground}" 
+                                          Stretch="Fill"/>
+                                </Canvas>
+                            </Viewbox>
                         </RepeatButton>
                         <ItemsControl Grid.Column="1"
                                       ItemsSource="{TemplateBinding PaginationItems}">
@@ -856,7 +866,14 @@
                                       FontStyle="{TemplateBinding FontStyle}"
                                       local:RepeatButtonHelper.HoverBrush="{TemplateBinding HoverBrush}"
                                       local:RepeatButtonHelper.CornerRadius="{TemplateBinding CornerRadius}">
-                            <Path Width="16" Height="16" Fill="#7B86E1" Stroke="#7B86E1" Data="M610.88 512L192 93.12 285.12 0l512 512-512 512L192 930.88z"/>
+                            <Viewbox Stretch="Uniform" Height="14" Width="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Canvas Height="14" Width="8">
+                                    <Path Data="{StaticResource gright}" Height="14" Width="8"
+                                          Fill="{TemplateBinding Foreground}" 
+                                          Stroke="{TemplateBinding Foreground}" 
+                                          Stretch="Fill"/>
+                                </Canvas>
+                            </Viewbox>
                         </RepeatButton>
                     </Grid>
                     <ControlTemplate.Triggers>
